@@ -4,16 +4,18 @@ from ImageProcessor import processImage
 from NewsDataHandler import getNewsFromBBC
 from DescriptionCreator import createGeneratedDescription
 import config
+import random
 
 cl = Client()
 news_stories = getNewsFromBBC()
 story_count = len(news_stories)
-view_stories = False
+view_only = False
 
-if view_stories:
+if view_only:
     for news_story in news_stories:
         print(news_story)
 else:
+    sleep(random.randint(1,85999))
     cl.login(config.username, config.password)
 
     for storyIdx in range(story_count):
@@ -30,6 +32,6 @@ else:
         )
 
         print(f"Story {storyIdx+1} Posted \n")
-        sleep(60)
+        sleep(random.randint(1,3600))
 
 print("All Stories Posted")
