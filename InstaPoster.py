@@ -3,6 +3,7 @@ from instagrapi import Client
 from ImageProcessor import processImage
 from NewsDataHandler import getNewsFromBBC
 from DescriptionCreator import createGeneratedDescription
+from NotificationSender import sendNotification
 import config
 import random
 
@@ -33,5 +34,5 @@ else:
 
         print(f"Story {storyIdx+1} Posted \n")
         sleep(random.randint(1,3600))
-
-print("All Stories Posted")
+    
+    sendNotification(story_count)
